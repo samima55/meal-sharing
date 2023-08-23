@@ -5,15 +5,18 @@ const knex = require("../database");
 // /api/reservations	GET	Returns all reservations
 router.get("/", async (req, res) => {
   try {
-    const reservation = await knex("reservation");
+    const reservation = await knex("reservation").select('*');
     if (!reservation) {
       return res.status(404).json({ error: "no reserbvatoions yet" });
     }
     res.json(reservation);
+    
   } catch (error) {
     res.sendStatus(500);
+    console.log(error);
   }
 });
+
 
 
 // /api/reservations	POST	Adds a new reservation to the database

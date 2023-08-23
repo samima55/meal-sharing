@@ -1,17 +1,82 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
+const validateRequestBody = (req, res, next) => {
+  const { title } = req.body;
+  if(!title) {
+    return res.status(400).json({ error: 'Title is required'})
+  }
+  next();
+};
+
 
 // getting all the meals 
 router.get("/", async (request, response) => {
-  try {
+ 
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals").select("title");
+      /* const titles = await knex("meal").select("title");
     response.json(titles);
-  } catch (error) {
-    throw error;
-  }
-});
+    */
+
+    try {
+      const { maxPrice, availableReservations, title, dateAfter, dateBefore, limit, sortKey, sortDir } = request.query;
+  
+      const query = knex('meal').select('*');
+    
+
+      //api/meals?maxPrice=90
+
+      if (maxPrice) {
+        query.where('price', '<=', maxPrice);
+      }
+
+      //api/meals?availableReservations=tru
+
+      if (availableReservations === 'true') {
+        query.where('max_reservations', '>', knex.raw('COALESCE((SELECT SUM(quantity) FROM reservations WHERE reservations.meal_id = meals.id), 0)'));
+      } else if (availableReservations === 'false') {
+        query.where('max_reservations', '<=', knex.raw('COALESCE((SELECT SUM(quantity) FROM reservations WHERE reservations.meal_id = meals.id), 0)'));
+      }
+      //api/meals?title=Indian%20platter
+
+      if (title) {
+        query.where('title', 'ilike', `%${title}%`);
+      }
+       //api/meals?dateAfter=2022-10-01
+      if (dateAfter) {
+        query.where('when', '>', dateAfter);
+      }
+       //api/meals?dateBefore=2022-08-08
+      if (dateBefore) {
+        query.where('when', '<', dateBefore);
+      }
+       //api/meals?limit=7
+       if (limit) {
+        query.limit(limit);
+      }
+
+     //api/meals?sortKey=price
+    // api/meals?sortKey=price&sortDir=desc
+      if (sortKey) {
+        const validSortKeys = ['when', 'max_reservations', 'price'];
+        if (validSortKeys.includes(sortKey)) {
+          const order = sortDir === 'desc' ? 'desc' : 'asc';
+          query.orderBy(sortKey, order);
+        }
+      }
+     
+  
+      const meals = await query;
+  
+  
+      response.json(meals);
+    } catch (error) {
+      response.status(500).json({ error: 'An error occurred while retrieving meals' });
+
+
+    }
+  });
+
 
 // adding a new meal to the database 
 router.post("/", async (request, response) => {

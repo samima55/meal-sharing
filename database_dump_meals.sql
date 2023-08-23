@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `meal-sharing`;
-USE `meal-sharing`;
+CREATE DATABASE  IF NOT EXISTS `Meal-Sharing`;
+USE `Meal-Sharing`;
 --
 -- Table structure for table `meals`
 --
