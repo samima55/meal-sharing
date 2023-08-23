@@ -10,7 +10,7 @@ const validateRequestBody = (req, res, next) => {
 };
 
 
-// getting all the meals 
+// getting all the meals on meal table 
 router.get("/", async (request, response) => {
  
     // knex syntax for selecting things. Look up the documentation for knex for further info

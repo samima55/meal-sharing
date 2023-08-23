@@ -1,5 +1,7 @@
 const Joi = require("joi");
 
+
+// validation for meal table 
 const validateMeal = (meal) => {
   const schema = Joi.object({
     title: Joi.string().required(),

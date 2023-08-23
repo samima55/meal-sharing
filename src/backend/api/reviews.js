@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 
 // GET reviews for a specific meal->>/api/meals/:meal_id/reviews
-//http://localhost:5000/api/reviews/meals/1/reviews
+//http://localhost:5000/api/reviews/meals/1/reviews -> route 
 router.get('/meals/:meal_id/reviews', async (req, res) => {
     try {
         const mealId = req.params.meal_id;
