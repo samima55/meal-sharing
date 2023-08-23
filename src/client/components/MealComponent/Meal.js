@@ -4,9 +4,12 @@ const Meal = ({ meal }) => {
   return (
     <li className='meal-item'>
       <h3>{meal.title}</h3>
-      <p>
-        {meal.description} | {meal.price}DKK
+      <p className='description'>
+        {meal.description} 
       </p>
+       <p className='prince'>
+       {meal.price} DKK
+       </p>
     </li>
   );
 };

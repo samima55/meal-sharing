@@ -22,8 +22,17 @@
     padding: 20px;
     border-radius: 5px;
     transition: box-shadow 0.3s ease;
+    background-color: rgb(168, 215, 218);
   }
   
   .meal-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .description{
+    
+  }
+
+  .price{
+    
   }
