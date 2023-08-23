@@ -1,3 +1,10 @@
 * {
     box-sizing: border-box;
 }
+
+.header {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    padding-left: 150px;
+  }
