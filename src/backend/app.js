@@ -112,7 +112,7 @@ app.get("/", async (req, res) => {
     const meal = await knex
       .select("title", "description")
       .from("meal")
-      .orderBy("id", "asce")
+      .orderBy("id", "asc")
       .limit(3);
     res.status(200).json(meal);
   } catch (error) {

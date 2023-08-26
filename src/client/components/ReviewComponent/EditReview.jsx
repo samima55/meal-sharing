@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const EditReview = ({ reviewId, onReviewEdited }) => {
+const EditReview = ({ reviewId, onReviewEdited , setReviews}) => {
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [newStars, setNewStars] = useState('');
@@ -14,12 +14,25 @@ const EditReview = ({ reviewId, onReviewEdited }) => {
         title: newTitle,
         description: newDescription,
         stars: newStars,
+        //created_date: new Date(),
       });
 
       if (response.status === 200) {
         // Call the callback function passed from the parent component
         // to notify that a review has been edited
         onReviewEdited();
+        setReviews((prevReviews) =>
+        prevReviews.map((prevReview) =>
+          prevReview.id === reviewId
+            ? {
+                ...prevReview,
+                title: newTitle,
+                description: newDescription,
+                stars: newStars,
+              }
+            : prevReview
+        )
+      );
       }
 
       // Reset form inputs
@@ -64,6 +77,7 @@ const EditReview = ({ reviewId, onReviewEdited }) => {
         <br />
         <button type="submit">Save Changes</button>
         <button type="button" onClick={handleCancel}>Cancel</button>
+        
       </form>
     </div>
   );

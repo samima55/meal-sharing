@@ -1,5 +1,5 @@
 
-
+const  validateReview = require('../datavalidation');
 const express = require('express');
 const router = express.Router();
 const knex = require('../database');
@@ -87,18 +87,23 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const reviewId = req.params.id;
-  const { title, description, stars, created_date } = req.body;
+  //const { title, description, stars, created_date } = req.body;
+  const {
+    title,
+    description,
+    stars,
+    //created_date: isoCreatedDate,
+  } = req.body;
+  //const isoDate = new Date(isoCreatedDate);
 
-  const { error, value } = validateReview(req.body);
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
-  }
+  //const mysqlFormattedDate = isoDate.toISOString().slice(0, 10);
+ 
   try {
     const updatedRows = await knex("review").where("id", reviewId).update({
       title,
       description,
       stars,
-      created_date,
+      //created_date: mysqlFormattedDate
     });
 
     if (updatedRows === 0) {

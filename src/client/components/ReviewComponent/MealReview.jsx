@@ -70,7 +70,7 @@ const MealReview = () => {
             <button onClick={() => setEditingReviewId(review.id)}>Edit Review</button>
             <button onClick={() => setDeletingReviewId(review.id)}>Delete Review</button>
             {editingReviewId === review.id && (
-              <EditReview reviewId={review.id} onReviewEdited={() => setEditingReviewId(null)} />
+              <EditReview reviewId={review.id} onReviewEdited={() => setEditingReviewId(null)} setReviews={setReviews}/>
             )}
             {deletingReviewId === review.id && (
               <DeleteReview reviewId={review.id} onReviewDeleted={() => setDeletingReviewId(null)} setReviews={setReviews}/>
