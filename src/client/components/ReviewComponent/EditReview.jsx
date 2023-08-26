@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const EditReview = ({ reviewId, onReviewEdited }) => {
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [newStars, setNewStars] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.put(`http://localhost:3000/api/reviews/${reviewId}`, {
+        title: newTitle,
+        description: newDescription,
+        stars: newStars,
+      });
+
+      if (response.status === 200) {
+        // Call the callback function passed from the parent component
+        // to notify that a review has been edited
+        onReviewEdited();
+      }
+
+      // Reset form inputs
+      setNewTitle('');
+      setNewDescription('');
+      setNewStars('');
+    } catch (error) {
+      console.error('Error editing review:', error);
+    }
+  };
+
+
+  const handleCancel = () => {
+    // Reset form inputs and cancel the editing process
+    setNewTitle('');
+    setNewDescription('');
+    setNewStars('');
+    onReviewEdited(); // Notify parent component that editing has been canceled
+  };
+
+  return (
+    <div>
+      <h2>Edit Review</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          New Title:
+          <input type="text" value={newTitle} onChange={(event) => setNewTitle(event.target.value)} />
+        </label>
+        <br />
+        <label>
+          New Description:
+          <textarea
+            value={newDescription}
+            onChange={(event) => setNewDescription(event.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          New Stars:
+          <input type="number" value={newStars} onChange={(event) => setNewStars(event.target.value)} />
+        </label>
+        <br />
+        <button type="submit">Save Changes</button>
+        <button type="button" onClick={handleCancel}>Cancel</button>
+      </form>
+    </div>
+  );
+};
+
+export default EditReview;

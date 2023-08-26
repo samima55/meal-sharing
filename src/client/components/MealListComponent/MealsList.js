@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./MealsList.css";
 import Meal from "../MealComponent/Meal";
-
+import { Link } from "react-router-dom";
 const MealsList = () => {
   // State to hold the list of meals
   const [mealsList, setMealsList] = useState([]);
@@ -24,7 +24,11 @@ const MealsList = () => {
   return (
     <ul className="mealslist">
     {mealsList.map((meal) => (
+    <li key={meal.id} className="meal-item">
+      <Link to={`/meals/${meal.id}`}>
     <Meal meal={meal} key={meal.id} />
+    </Link>
+        </li>
     ))}
   </ul>
   );

@@ -158,8 +158,37 @@ router.delete("/:id", async (request, response) => {
   }
 });
 
+//getting reservation for the specific meals 
+router.get("/:id/reservations", async (req, res) => {
+  try {
+    const mealId = parseInt(req.params.id);
+    const mealReservations = await knex('reservation')
+      .select('reservation.*', 'meal.title', 'meal.description', 'meal.location', 'meal.when', 'meal.max_reservations', 'meal.price')
+      .innerJoin('meal', 'reservation.meal_id', 'meal.id')
+      .where('reservation.meal_id', mealId )
+    res.json(mealReservations);
 
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
+//getting reviews for the specific meals 
+router.get("/:id/reviews", async (req, res) => {
+  try {
+    const mealId = parseInt(req.params.id);
+    const mealReviews = await knex('review')
+      .select('review.*', 'meal.title as meal_title', 'meal.description as meal_description', 'meal.max_reservations', 'meal.price')
+      .innerJoin('meal', 'review.meal_id', 'meal.id')
+      .where('review.meal_id', mealId )
+    res.json(mealReviews);
+
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 

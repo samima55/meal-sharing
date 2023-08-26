@@ -106,6 +106,21 @@ app.get("/last-meal", async (req, res) => {
   }
 });
 
+// get some meals 
+app.get("/", async (req, res) => {
+  try {
+    const meal = await knex
+      .select("title", "description")
+      .from("meal")
+      .orderBy("id", "asce")
+      .limit(3);
+    res.status(200).json(meal);
+  } catch (error) {
+    res.status(500).json("500. Internal Server Error");
+  }
+});
+
+
 
 
 

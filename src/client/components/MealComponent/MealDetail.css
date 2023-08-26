@@ -1,0 +1,62 @@
+/* MealDetail.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: block;
+  }
+  
+  .meal-detail {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #9de8e3;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meal-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background-color: rgb(197, 197, 121);
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .meal-description {
+    margin-bottom: 15px;
+  }
+  
+  .meal-price {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .reservation-form {
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .reservation-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .reservation-form button {
+    background-color: rgb(197, 197, 121);
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
