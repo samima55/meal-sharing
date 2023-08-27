@@ -15,10 +15,6 @@ function App() {
     <Router>
       
          <Route exact path="/">
-          <p className="bg-blue-500 text-white p-4"> hello</p>
-          <h1 className="bg-blue-500 text-white p-4">
-      Hello world!
-    </h1>
           <FrontPage />
         </Route>
      

@@ -10,12 +10,14 @@ import { useParams } from "react-router-dom";
  
   return (
    
-    <div className='meal-item'>
-      <h2>{meal.title}</h2>
-      <p className='description'>
+    <div className='card'>
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <div className='card-body'>
+      <h2 className='card-title'>{meal.title}</h2>
+      <p className='card-text'>
         {meal.description} 
       </p>
-       <p className='prince'>
+       <p className=''>
        {meal.price} DKK
        </p>
        <h2> 
@@ -23,8 +25,8 @@ import { useParams } from "react-router-dom";
         <Link to={`/meals/${meal.id}/reservations`}><GrNotes /></Link>
          <RiDeleteBin2Fill/>
          <Link to={`/meals/${meal.id}/reviews`}>  <AiFillStar/> </Link>
-         
           </h2>
+          </div>
     </div>
     
   );
