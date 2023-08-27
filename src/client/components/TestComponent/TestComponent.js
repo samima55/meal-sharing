@@ -7,7 +7,7 @@ import "./testComponentStyle.css";
 export default function TestComponent() {
   return (
     <section className="test-component">
-      <p>in a component</p>
+      <p className="bg-blue-500 text-white p-4">in a component</p>
     </section>
   );
 }

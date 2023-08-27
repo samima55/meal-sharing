@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/*@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import 'theme.css';
 * {
   font-family: 'Montserrat', sans-serif;
@@ -50,3 +56,6 @@ button {
     padding-right: 0;
   }
 }
+*/
+
+
