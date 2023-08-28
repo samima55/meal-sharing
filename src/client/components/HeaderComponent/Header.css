@@ -1,0 +1,12 @@
+.navbar-style {
+  background-color: white;
+  border: 1px solid #7b7d7e; /* Add border */
+  border-radius: 10px; 
+}
+
+
+.logo-name{
+   
+    color: #4c0e8f;
+    font-family: 'Pacifico', cursive;
+}

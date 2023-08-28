@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./FrontPage.css";
 import Meal from "../MealComponent/Meal";
+import Header from "../HeaderComponent/Header";
+import Footer from "../FooterComponent/Footer";
 const FrontPage = () => {
 
   const [mealsList, setMealsList] = useState([]);
@@ -23,10 +25,12 @@ const FrontPage = () => {
 
 
   return (
+    <>
+    <Header />
     <div className="d-flex justify-content-center align-items-center ">
     <div className="text-center">
-      <h1 className="pt-5"> wlcm to Meal Sharing App</h1>
-      <ul className="row row-cols-1 row-cols-md-2 g-4">
+      {/*<h1 className="pt-5"> wlcm to Meal Sharing App</h1>*/}
+      <ul className="row row-cols-1 row-cols-md-2 g-4 pt-5">
       {mealsList
           .slice(0, 2) // Display only the first two meals
           .map((meal) => (
@@ -41,6 +45,9 @@ const FrontPage = () => {
      
     </div>
     </div>
+
+    <Footer/>
+    </>
   );
 };
 

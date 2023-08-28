@@ -53,10 +53,20 @@
   
   .reservation-form button {
     background-color: rgb(197, 197, 121);
-    color: #000000;
+  
     border: none;
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
   }
   
+  .btn-review{
+    background-color: #4c0e8f; /* Set the background color on hover */
+    color: rgb(255, 255, 255); /* Set the text color on hover */
+    border-color: rgb(225, 189, 245)
+  }
+  .btn-review:hover{
+    background-color: rgb(225, 189, 245); /* Set the background color on hover */
+    color: rgb(0, 0, 0); /* Set the text color on hover */
+    border-color: #4c0e8f
+  }

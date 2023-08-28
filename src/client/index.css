@@ -26,9 +26,12 @@ ul {
 
 a {
   text-decoration: none;
-  color: #2d3233;
+  color: white
 }
 
+a:hover{
+  color: black;
+}
 button {
   background-color: #3e99c0;
   border-radius: 8px;

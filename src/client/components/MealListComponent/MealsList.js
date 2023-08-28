@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./MealsList.css";
 import Meal from "../MealComponent/Meal";
 import { Link } from "react-router-dom";
-const MealsList = () => {
+const MealsList = ( {match}) => {
+  console.log(match);
   // State to hold the list of meals
   const [mealsList, setMealsList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -89,7 +90,7 @@ const MealsList = () => {
     .map((meal) => (
     <li key={meal.id} className="meal-item">
       <Link to={`/meals/${meal.id}`}>
-    <Meal meal={meal} key={meal.id} />
+    <Meal meal={meal} key={meal.id} showAdditionalInfo={!!match} />
     </Link>
         </li>
     ))}
