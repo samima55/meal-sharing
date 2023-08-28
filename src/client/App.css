@@ -1,8 +1,7 @@
 *{
     box-sizing: border-box;
 }
-
-.header {
-    
-  }
-  
+.meal-title{
+     color:  #4c0e8f;
+    font-family: 'Pacifico', cursive;
+}

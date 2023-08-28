@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ReservationForm from "../ReservationComponent/ReservationForm";
-import "./MealDetail.css"; 
-
+import "./MealDetail.css";
+import Footer from "../FooterComponent/Footer"
 
 const MealDetail = () => {
   const { id } = useParams();
@@ -15,7 +16,6 @@ const MealDetail = () => {
         const response = await fetch(`http://localhost:3000/api/meals/${id}`);
         const meal = await response.json();
         setMealDetail(meal);
-        console.log(meal);
         setHasAvailableReservations(meal.max_reservations > 0);
       } catch (error) {
         console.log("Error fetching meal detail:", error);
@@ -25,35 +25,47 @@ const MealDetail = () => {
     fetchMealDetail();
   }, [id]);
 
-
-
   return (
-    <div className="container">
-      <h2>Meal Detail </h2>
-      
-      {mealDetail ? (
-        <div className="meal-detail">
-          <h3 className="meal-title">{mealDetail.title}  </h3>
-          <p className="meal-description">{mealDetail.description}</p>
-          <p className="meal-price">Price: {mealDetail.price} DKK</p>
-          <p className="meal-price">Location: {mealDetail.location} </p>
-          <p className="meal-price">Max reservation :{mealDetail.max_reservations} </p>
-
-          {hasAvailableReservations ?  (
-            <div className="reservation-form">
-              <ReservationForm meal_id={mealDetail.id}  />
+    <>
+    <div className="container px-4 container-meal-detail">
+      <div className="row">
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
+              {mealDetail ? (
+                <div className="meal-detail">
+                  <h3 className="meal-title card-title">{mealDetail.title}</h3>
+                  <p className="mb-2">{mealDetail.description}</p>
+                  <p className=" mb-2 ">{mealDetail.price} DKK</p>
+                  <p className="mb-2">Location: {mealDetail.location}</p>
+                  <p className="mb-2">Max reservations: {mealDetail.max_reservations}</p>
+                </div>
+              ) : (
+                <p>Loading...</p>
+              )}
             </div>
-          
-          ) : (
-            <p>No available reservations for this meal.</p>
-          )}
-         
-
+          </div>
+          <Link to="/" className="btn btn-custom mt-3">
+          Back to Home
+        </Link>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+        <div className="col-md-6 mb-4">
+          <div className="card">
+            <div className="card-body">
+              {hasAvailableReservations ? (
+                <div className="reservation-form">
+                  <ReservationForm meal_id={mealDetail} />
+                </div>
+              ) : (
+                <p>No available reservations for this meal.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

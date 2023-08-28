@@ -26,8 +26,8 @@ function App() {
         </Route>
 
       <Route exact path="/meals" render={(props) => (
-  <     div>
-    <p className="header">Meals</p>
+       <div>
+    <h2 className="meal-title py-3 text-center">Meals</h2>
     <MealsList match={props.match} />
         </div>
 )} />

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import {BsSortDownAlt, BsSortUpAlt} from "react-icons/bs";
 import "./MealsList.css";
 import Meal from "../MealComponent/Meal";
+import Footer from "../FooterComponent/Footer"
 import { Link } from "react-router-dom";
 const MealsList = ( {match}) => {
   console.log(match);
@@ -54,18 +56,21 @@ const MealsList = ( {match}) => {
 
   return (
     <>
-    <div className="search-bar">
+    <div className="form-outline mb-4">
     <input
       type="text"
-      placeholder="Search meals..."
+       className="form-control text-center"
+       placeholder="Search meals..."
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
     />
   </div>
 
-  <div>
-        <label htmlFor="sort">Sort by:</label>
-        <select
+  <div className="d-flex align-items-center">
+    <div className="col-2"></div>
+  <div className="col-6">
+        
+        <select  className="form-select form-select-md btn-select "
           id="sort"
           value={sortKey}
           onChange={(e) => {
@@ -74,27 +79,35 @@ const MealsList = ( {match}) => {
             setSortDir("asc");
           }}
         >
-          <option value="time">Time</option>
+          <option value="time" >Time</option>
           <option value="max_reservations">Max Reservations</option>
           <option value="price">Price</option>
         </select>
-        <button onClick={toggleSortDirection}>
-          {sortDir === "asc" ? "⬆️" : "⬇️"}
+        </div>
+        <div className="col-2  d-flex justify-content-end">
+        <button  onClick={toggleSortDirection} className=" btn btn-sort  btn-lg">
+          {sortDir === "asc" ? <BsSortUpAlt/> : <BsSortDownAlt/>}
         </button>
       </div>
-    <ul className="mealslist">
+      </div>
+    <div className="d-flex justify-content-center align-items-center ">
+    <div className="text-center">
+    <ul className="row row-cols-1 row-cols-md-2 g-6 pt-5 ">
     {sortedMeals
     .filter((meal) =>
     meal.title.toLowerCase().includes(searchQuery.toLowerCase())
   )
     .map((meal) => (
-    <li key={meal.id} className="meal-item">
+    <li key={meal.id} className="col py-5 pb-2 meal-card">
       <Link to={`/meals/${meal.id}`}>
     <Meal meal={meal} key={meal.id} showAdditionalInfo={!!match} />
     </Link>
         </li>
     ))}
   </ul>
+  </div>
+  </div>
+    <Footer/>
   </>
   );
 };
