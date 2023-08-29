@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 import AddReview from './AddReview';
 import DeleteReview from './DeleteReview';
 import EditReview from './EditReview';
-
-
+import Footer from "../FooterComponent/Footer";
+import {BsStarFill, BsStar} from "react-icons/bs";
+import './Review.css';
 
 
 const MealReview = () => {
@@ -58,28 +59,54 @@ const MealReview = () => {
 
 
     return(
-        <div>
-             <h1>{mealName}</h1>
-             <button onClick={handleToggleReviewForm}>Add Review</button>
-             {showReviewForm && <AddReview mealId={id} onReviewAdded={handleReviewAdded} />}
-          <ul>
+      <>
+     
+      <div className="container">
+      <div className="row">
+      <h1 className='meal-title my-6'>{mealName}</h1>
+      <div className="col">
+      <h2 className='meal-title my-6'> Reviews</h2>
+        <ul>
         {reviews.map(review => (
-          <li key={review.id}>
-            <h2>{ review.title}</h2>
+          <li key={review.id} className='card mb-4'>
+            <div className=' card-body'>
+            <h3>{ review.title}</h3>
             <p> {review.description}</p>
-            <button onClick={() => setEditingReviewId(review.id)}>Edit Review</button>
-            <button onClick={() => setDeletingReviewId(review.id)}>Delete Review</button>
+            {/* Display star icons based on the review's star value */}
+            <div>
+              {[...Array(5)].map((_, index) => (
+                 index < review.stars ? <BsStarFill key={index} /> : <BsStar key={index} />
+                 ))}
+              </div>
+
+            {/* Only show the buttons if editingReviewId is not the current review id  when the form is on*/}
+            {editingReviewId !== review.id && (
+                                            <>
+            <button onClick={() => setEditingReviewId(review.id)} className='btn btn-custom btn-sm mt-2'>Edit Review</button>
+            <button onClick={() => setDeletingReviewId(review.id)} className='btn btn-custom-delete btn-sm mt-2'>Delete Review</button>
+            </>
+                )}
+
             {editingReviewId === review.id && (
               <EditReview reviewId={review.id} onReviewEdited={() => setEditingReviewId(null)} setReviews={setReviews}/>
             )}
             {deletingReviewId === review.id && (
               <DeleteReview reviewId={review.id} onReviewDeleted={() => setDeletingReviewId(null)} setReviews={setReviews}/>
             )}
+            </div>
           </li>
         ))}
       </ul>
+      </div>
+      <div className="col">
+                    <button onClick={handleToggleReviewForm} className="btn btn-custom">{showReviewForm ? 'Cancel Review' : 'Add Review'}</button>
+                    {showReviewForm && <AddReview mealId={id} onReviewAdded={handleReviewAdded} />}
+                </div>
         </div>
-    )
+        </div>
+        <Footer/>
+        </>
+    );
 
 
 }

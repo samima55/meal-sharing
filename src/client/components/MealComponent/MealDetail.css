@@ -12,7 +12,10 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-   
+   .meal-image{
+    height: 250px; /* Set the desired fixed height */
+     object-fit: cover; /* Maintain aspect ratio and cover the available space */
+   }
   .reservation-form {
     background-color: #efefef;
     border: 1px solid #ddd;

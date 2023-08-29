@@ -45,17 +45,28 @@ const MealReservations = () => {
 
 
     return(
-        <div>
-             <h2>{mealName}</h2>
-          <ul>
+        <div className='text-center'>
+          
+          <h1 className='meal-title my-4 '>Reservations</h1>
+             <h2 className='meal-title'>{mealName}</h2>
+             <div className="row">
+          <div className='col-md-4'></div>
+          <ul className='col-md-4 mt-6'>
         {reservations.map(reservation => (
-          <li key={reservation.id}>
-            <p>{ reservation.contact_name}</p>
-            <button onClick={() => handleDeleteReservation(reservation.id)}> <RiDeleteBin2Fill/></button>
+          <li key={reservation.id} className='card mb-4'>
+            <div className='card-body'>
+            <p> <strong className='meal-title'>Name:</strong>{ reservation.contact_name}</p>
+            <p> <strong className='meal-title'>email:</strong>  { reservation.contact_email}</p>
+            <p>  <strong className='meal-title'>Number:</strong> { reservation.contact_number}</p>
+            <button onClick={() => handleDeleteReservation(reservation.id)} className='btn btn-custom-delete btn-md'> <RiDeleteBin2Fill/></button>
+          </div>
           </li>
         ))}
       </ul>
-        </div>
+      <div className='col-md-4'></div>
+      </div>
+      </div>
+        
     )
 
 

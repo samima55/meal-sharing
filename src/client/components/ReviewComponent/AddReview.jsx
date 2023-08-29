@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import "./Review.css";
 const AddReview = ({ mealId, onReviewAdded }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -37,25 +37,25 @@ const AddReview = ({ mealId, onReviewAdded }) => {
   };
 
   return (
-    <div>
-    <h2>Add Review</h2>
+    <div className='col '>
+    <h2 className='meal-title'> newReview</h2>
     <form onSubmit={handleSubmit}>
-      <label>
+      <label className='form-label'>
         Title:
-        <input type="text" value={title} onChange={event => setTitle(event.target.value)} />
+        <input type="text" value={title} onChange={event => setTitle(event.target.value)} className='d-block' />
       </label>
       <br />
-      <label>
+      <label className='form-label'>
         Description:
-        <textarea value={description} onChange={event => setDescription(event.target.value)} />
+        <textarea value={description} onChange={event => setDescription(event.target.value)} className='d-block'/>
       </label>
       <br />
-      <label>
+      <label className='form-label'>
         Stars:
-        <input type="number" value={stars} onChange={event => setStars(event.target.value)} />
+        <input type="number" value={stars} onChange={event => setStars(event.target.value)} className='d-block'/>
       </label>
       <br />
-      <button type="submit">Submit Review</button>
+      <button type="submit" className='btn btn-custom d-block'>Submit Review</button>
     </form>
   </div>
   );

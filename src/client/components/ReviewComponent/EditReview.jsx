@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import "./Review.css";
 const EditReview = ({ reviewId, onReviewEdited , setReviews}) => {
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
@@ -54,12 +54,12 @@ const EditReview = ({ reviewId, onReviewEdited , setReviews}) => {
   };
 
   return (
-    <div>
-      <h2>Edit Review</h2>
+    <div className='col'>
+      <h2 className='meal-title'>Edit Review</h2>
       <form onSubmit={handleSubmit}>
         <label>
           New Title:
-          <input type="text" value={newTitle} onChange={(event) => setNewTitle(event.target.value)} />
+          <input type="text" value={newTitle} onChange={(event) => setNewTitle(event.target.value)} className='d-block' />
         </label>
         <br />
         <label>
@@ -67,16 +67,17 @@ const EditReview = ({ reviewId, onReviewEdited , setReviews}) => {
           <textarea
             value={newDescription}
             onChange={(event) => setNewDescription(event.target.value)}
+           className='d-block'
           />
         </label>
         <br />
         <label>
           New Stars:
-          <input type="number" value={newStars} onChange={(event) => setNewStars(event.target.value)} />
+          <input type="number" value={newStars} onChange={(event) => setNewStars(event.target.value)} className='d-block'/>
         </label>
         <br />
-        <button type="submit">Save Changes</button>
-        <button type="button" onClick={handleCancel}>Cancel</button>
+        <button type="submit" className='btn btn-sm btn-custom'>Save Changes</button>
+        <button type="button" onClick={handleCancel} className='btn btn-sm btn-custom-delete'>Cancel</button>
         
       </form>
     </div>

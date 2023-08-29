@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-
+import "./Review.css";
 const DeleteReview = ({ reviewId, onReviewDeleted,setReviews }) => {
   const handleDelete = async () => {
     try {
@@ -25,8 +25,8 @@ const DeleteReview = ({ reviewId, onReviewDeleted,setReviews }) => {
   return (
     <div>
       <p>Are you sure you want to delete this review?</p>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={onReviewDeleted}>Cancel</button>
+      <button onClick={handleDelete} className='btn btn-custom-delete'>Delete</button>
+      <button onClick={onReviewDeleted} className='btn btn-custom'>Cancel</button>
     </div>
   );
 };
