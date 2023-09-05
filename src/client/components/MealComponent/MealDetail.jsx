@@ -54,7 +54,7 @@ const MealDetail = () => {
             <div className="card-body">
               {hasAvailableReservations ? (
                 <div className="reservation-form">
-                  <ReservationForm meal_id={mealDetail} />
+                  <ReservationForm meal_id={id} />
                 </div>
               ) : (
                 <p>No available reservations for this meal.</p>

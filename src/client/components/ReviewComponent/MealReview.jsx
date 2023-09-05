@@ -61,9 +61,9 @@ const MealReview = () => {
     return(
       <>
      
-      <div className="container">
+      <div className="container p-5">
       <div className="row">
-      <h1 className='meal-title my-6'>{mealName}</h1>
+      <h1 className='meal-title my-3'>{mealName}</h1>
       <div className="col">
       <h2 className='meal-title my-6'> Reviews</h2>
         <ul>

@@ -8,27 +8,8 @@
     max-width: 1200px;
     list-style: none;
   }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f6f6f6;
-  }
-  
-  .meal-item {
-    border: 1px solid #f2ebeb ;
-    padding: 20px;
-    border-radius: 5px;
-    transition: box-shadow 0.3s ease;
-    background-color: rgb(168, 215, 218);
-  }
-  
-  .meal-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
+ 
+ 
   .btn-sort{
     background-color: #4c0e8f; /* Set the background color on hover */
     color: rgb(255, 255, 255); /* Set the text color on hover */

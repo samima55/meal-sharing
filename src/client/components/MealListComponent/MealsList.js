@@ -35,8 +35,8 @@ const MealsList = ( {match}) => {
     if (sortKey === "time") {
      
       return sortDir === "asc"
-        ? mealA.when.localeCompare(mealB.when)
-        : mealB.when.localeCompare(mealA.when);
+        ? mealA.when_date.localeCompare(mealB.when_date)
+        : mealB.when_date.localeCompare(mealA.when_date);
     } else if (sortKey === "max_reservations") {
       console.log("Sorting by max reservations");
       return sortDir === "asc"

@@ -35,7 +35,7 @@ app.get("/future-meals", async (req, res) => {
     const meals = await knex
       .select()
       .from("meal")
-      .where("when", "<", knex.fn.now());
+      .where("when_date", "<", knex.fn.now());
 
     if (!meals.length) {
       return res.status(404).json({ error: "No meal found" });
@@ -53,7 +53,7 @@ app.get("/past-meals", async (req, res) => {
     const meals = await knex
       .select()
       .from("meal")
-      .where("when", "<", knex.fn.now())
+      .where("when_date", "<", knex.fn.now())
       .orderBy("id");
 
     if (!meals) {

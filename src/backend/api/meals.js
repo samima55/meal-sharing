@@ -44,11 +44,11 @@ router.get("/", async (request, response) => {
       }
        //api/meals?dateAfter=2022-10-01
       if (dateAfter) {
-        query.where('when', '>', dateAfter);
+        query.where('when_date', '>', dateAfter);
       }
        //api/meals?dateBefore=2022-08-08
       if (dateBefore) {
-        query.where('when', '<', dateBefore);
+        query.where('when_date', '<', dateBefore);
       }
        //api/meals?limit=7
        if (limit) {
@@ -58,7 +58,7 @@ router.get("/", async (request, response) => {
      //api/meals?sortKey=price
     // api/meals?sortKey=price&sortDir=desc
       if (sortKey) {
-        const validSortKeys = ['when', 'max_reservations', 'price'];
+        const validSortKeys = ['when_date', 'max_reservations', 'price'];
         if (validSortKeys.includes(sortKey)) {
           const order = sortDir === 'desc' ? 'desc' : 'asc';
           query.orderBy(sortKey, order);
@@ -81,14 +81,14 @@ router.get("/", async (request, response) => {
 // adding a new meal to the database 
 router.post("/", async (request, response) => {
   try {
-    const { title, description, location, when, max_reservations, price } =
+    const { title, description, location, when_date, max_reservations, price } =
       request.body;
     //insert to database
     await knex("meal").insert({
       title,
       description,
       location,
-      when,
+      when_date,
       max_reservations,
       price,
       created_date: new Date(),
@@ -120,7 +120,7 @@ router.get("/:id", async (request, response) => {
 
 router.put("/:id", async (request, response) => {
   const mealId = request.params.id;
-  const { title, description, location, when, max_reservations, price } =
+  const { title, description, location, when_date, max_reservations, price } =
     request.body;
 
   try {
@@ -129,7 +129,7 @@ router.put("/:id", async (request, response) => {
       title,
       description,
       location,
-      when,
+      when_date,
       max_reservations,
       price,
     });
@@ -163,7 +163,7 @@ router.get("/:id/reservations", async (req, res) => {
   try {
     const mealId = parseInt(req.params.id);
     const mealReservations = await knex('reservation')
-      .select('reservation.*', 'meal.title', 'meal.description', 'meal.location', 'meal.when', 'meal.max_reservations', 'meal.price')
+      .select('reservation.*', 'meal.title', 'meal.description', 'meal.location', 'meal.when_date', 'meal.max_reservations', 'meal.price')
       .innerJoin('meal', 'reservation.meal_id', 'meal.id')
       .where('reservation.meal_id', mealId )
     res.json(mealReservations);

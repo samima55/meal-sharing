@@ -8,8 +8,10 @@ const ReservationForm = ({ meal_id }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-        
+    
      try {
+
+
       const response = await axios.post("http://localhost:3000/api/reservations", {
         number_of_guests,
          meal_id,
@@ -21,6 +23,7 @@ const ReservationForm = ({ meal_id }) => {
 
       if (response.status === 201) {
         // Reservation successfully created
+        alert('Reservation created successfully!');
         console.log("Reservation created successfully!");
       } else {
         // Handle error
