@@ -1,0 +1,15 @@
+/* FrontPage.css */
+.btn-custom {
+    background-color: #4c0e8f; /* Set the background color on hover */
+    color: rgb(255, 255, 255); /* Set the text color on hover */
+    border-color: rgb(225, 189, 245); /* Set the border color on hover */
+  }
+  
+  .btn-custom:hover {
+    background-color: rgb(225, 189, 245); /* Set the background color on hover */
+    color: rgb(0, 0, 0); /* Set the text color on hover */
+    border-color: #4c0e8f;
+    transform: scale(1.1); /* Scale up the button on hover */
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  

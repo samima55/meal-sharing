@@ -1,0 +1,50 @@
+/* MealDetail.css */
+.container-meal-detail{
+  background-color: #efe6f8;
+  border-radius: 5px;
+/*border: solid 1px #4c0e8f;*/
+}
+  
+  .meal-detail {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: rgb(253, 235, 253);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+   .meal-image{
+    height: 250px; /* Set the desired fixed height */
+     object-fit: cover; /* Maintain aspect ratio and cover the available space */
+   }
+  .reservation-form {
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .reservation-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
+
+  .btn-review{
+    background-color: #4c0e8f; /* Set the background color on hover */
+    color: rgb(255, 255, 255); /* Set the text color on hover */
+    border-color: rgb(225, 189, 245)
+  }
+  .btn-review:hover{
+    background-color: rgb(225, 189, 245); /* Set the background color on hover */
+    color: rgb(0, 0, 0); /* Set the text color on hover */
+    border-color: #4c0e8f
+  }
