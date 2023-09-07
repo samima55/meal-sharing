@@ -12,7 +12,7 @@ const ReservationForm = ({ meal_id }) => {
      try {
 
 
-      const response = await axios.post("http://localhost:3000/api/reservations", {
+      const response = await axios.post("/api/reservations", {
         number_of_guests,
          meal_id,
         created_date: new Date(),

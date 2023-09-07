@@ -25,11 +25,11 @@ const MealReview = () => {
     const fetchReviews= async () => {
      
       try {
-        const mealResponse = await axios.get(`http://localhost:3000/api/meals/${id}`);
+        const mealResponse = await axios.get(`/api/meals/${id}`);
         const mealData = mealResponse.data;
         setMealName(mealData.title);
 
-        const response = await axios.get(`http://localhost:3000/api/meals/${id}/reviews`);
+        const response = await axios.get(`/api/meals/${id}/reviews`);
         const reviewData= await response.data;
        // console.log(reviewData)
        setReviews(reviewData);

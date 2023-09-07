@@ -5,7 +5,7 @@ import "./Review.css";
 const DeleteReview = ({ reviewId, onReviewDeleted,setReviews }) => {
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:3000/api/reviews/${reviewId}`);
+      const response = await axios.delete(`/api/reviews/${reviewId}`);
 
       if (response.status === 200) {
         // Call the callback function passed from the parent component

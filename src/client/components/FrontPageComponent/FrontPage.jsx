@@ -11,7 +11,7 @@ const FrontPage = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/meals");
+        const response = await fetch("/api/meals");
         const meals = await response.json();
         setMealsList(meals);
       } catch (error) {

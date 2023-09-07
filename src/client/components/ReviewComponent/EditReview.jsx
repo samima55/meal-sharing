@@ -10,7 +10,7 @@ const EditReview = ({ reviewId, onReviewEdited , setReviews}) => {
     event.preventDefault();
 
     try {
-      const response = await axios.put(`http://localhost:3000/api/reviews/${reviewId}`, {
+      const response = await axios.put(`/api/reviews/${reviewId}`, {
         title: newTitle,
         description: newDescription,
         stars: newStars,
