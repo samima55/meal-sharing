@@ -6,6 +6,8 @@
     padding: 20px; /* Add padding */
     color:  #4c0e8f;
     font-family: 'Pacifico', cursive;
+    align-items: center;
+    padding: 30px;
   }
   
   .about-title{
