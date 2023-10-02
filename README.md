@@ -32,6 +32,7 @@
 - [Samima Hassan] - [GitHub Profile](https://github.com/samima55)
 
 ## 📹 Demo
-[Link to Demo Video]
+[Link to Demo ]
+https://meal-sharing-samima.onrender.com/
 https://github.com/samima55/meal-sharing/assets/54752074/65faad6d-4f44-4269-b0fd-813d4847e3ef
 <!-- You can add more sections as needed, such as Features, Installation, Usage, Contributing, License, etc. -->
