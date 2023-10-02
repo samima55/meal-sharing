@@ -7,7 +7,6 @@
 <h3 align="center">Welcome to Meal Sharing App</h3>
 
 <div align="center">
- [![Build Status](https://travis-ci.com/your-username/your-repo.svg?branch=main)](https://travis-ci.com/your-username/your-repo)
 </div>
 
 ---
@@ -34,6 +33,6 @@
 
 ## 📹 Demo
 [Link to Demo Video]
-<iframe width="560" height="315" src="https://youtu.be/5RQqynMp_qk" frameborder="0" allowfullscreen></iframe>
+
 
 <!-- You can add more sections as needed, such as Features, Installation, Usage, Contributing, License, etc. -->
