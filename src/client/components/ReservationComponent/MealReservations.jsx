@@ -13,11 +13,11 @@ const MealReservations = () => {
     useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const mealResponse = await axios.get(`http://localhost:3000/api/meals/${id}`);
+        const mealResponse = await axios.get(`/api/meals/${id}`);
         const mealData = mealResponse.data;
         setMealName(mealData.title);
 
-        const response = await axios.get(`http://localhost:3000/api/meals/${id}/reservations`);
+        const response = await axios.get(`/api/meals/${id}/reservations`);
         const reservationsData= await response.data;
        // console.log(reservationsData)
         setReservations(reservationsData);
@@ -34,7 +34,7 @@ const MealReservations = () => {
     try {
         // Delete the reservation
         console.log(handleDeleteReservation);
-        await axios.delete(`http://localhost:3000/api/reservations/${reservationId}`);
+        await axios.delete(`/api/reservations/${reservationId}`);
          
         // Update the reservations list
         setReservations(prevReservations => prevReservations.filter(reservation => reservation.id !== reservationId));

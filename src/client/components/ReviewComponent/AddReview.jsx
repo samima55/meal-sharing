@@ -11,7 +11,7 @@ const AddReview = ({ mealId, onReviewAdded }) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:3000/api/reviews`, {
+      const response = await axios.post(`/api/reviews`, {
         title,
         description,
         meal_id: mealId,

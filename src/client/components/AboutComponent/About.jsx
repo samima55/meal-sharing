@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
      
-      <div className="container about-container">
+      <div className="about-container">
         <h1 className="mt-5 about-title">Wlcm to MealSharing App</h1>
         <p>
           This is a meal sharing app where people can come together to share and enjoy delicious meals. Whether you're a seasoned chef or simply enjoy trying new dishes, Meal Sharing App provides a platform to connect with fellow food enthusiasts and discover culinary delights from around the world.

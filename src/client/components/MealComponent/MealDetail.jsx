@@ -13,7 +13,7 @@ const MealDetail = () => {
   useEffect(() => {
     const fetchMealDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/meals/${id}`);
+        const response = await fetch(`/api/meals/${id}`);
         const meal = await response.json();
         setMealDetail(meal);
         setHasAvailableReservations(meal.max_reservations > 0);
