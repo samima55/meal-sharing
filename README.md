@@ -33,6 +33,5 @@
 
 ## 📹 Demo
 [Link to Demo Video]
-
-![A8169583-5525-41ED-AFCB-311FD86B0919_1_105_c](https://github.com/samima55/meal-sharing/assets/54752074/202de89e-c59b-4233-9db6-1c323dc7db42)
+https://github.com/samima55/meal-sharing/assets/54752074/65faad6d-4f44-4269-b0fd-813d4847e3ef
 <!-- You can add more sections as needed, such as Features, Installation, Usage, Contributing, License, etc. -->
